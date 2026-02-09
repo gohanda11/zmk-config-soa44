@@ -23,14 +23,7 @@
         status = "okay";
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_temp_layer 1 700>;
-
-        scroller {
-            layers = <5>;
-            input-processors =
-                <&zip_xy_to_scroll_mapper>,
-                <&zip_scroll_scaler 2 5>;
-        };
+        input-processors = <&mouse_runtime_input_processor &scroll_runtime_input_processor>;
     };
 };
 

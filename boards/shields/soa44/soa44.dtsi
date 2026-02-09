@@ -1,6 +1,8 @@
-#include <dt-bindings/zmk/matrix_transform.h>
 #include <physical_layouts.dtsi>
-
+#include <behaviors/battery_history_request.dtsi>
+#include <input/processors.dtsi>
+#include <input/processors/runtime-input-processor.dtsi>
+#include <dt-bindings/zmk/matrix_transform.h>
 / {
 	chosen {
 		zmk,physical-layout = &soa44_physical_layout;
@@ -113,4 +115,16 @@
 		status = "disabled";
 		reg = <0>;
 	};
+};
+
+&mouse_runtime_input_processor {
+	temp-layer-enabled;
+	temp-layer = <1>;
+};
+
+&scroll_runtime_input_processor {
+	x-codes = <INPUT_REL_X>;
+	y-codes = <INPUT_REL_Y>;
+	xy-to-scroll-enabled;
+	active-layers = <BIT(5)>;
 };
